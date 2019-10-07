@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         resultText = inputField.text
         
         // 改行フラグ
-        var returnFlg:Bool = false
+        var returnFlg = false
         
         // 改行されていたら改行フラグをtrueにする
         if resultText.range(of: "\n") != nil {
@@ -93,9 +93,22 @@ class ViewController: UIViewController {
         // 真ん中の段を完成させる
         centerText = left + resultText + right + ("\n")
         
-        // 改行されていたら真ん中の段数を増やす
+        // 改行されていたらcenterTextの段数を増やす
         if returnFlg == true {
+            
+            // 行数を取得して配列に入れる
+            var nTextLines = resultText.components(separatedBy: .newlines)
+            
+            // 何行あるか数える
+            var lineCount = nTextLines.count
+            
+            // 一番文字数が多い配列をmaxStr[0]に設定
+            var maxStr = nTextLines.max(by: {$1.count > $0.count})
+            
+            // 文字数が多い文字列プラス2が中心になる行数
+            
             resultText = "調整中！"
+            
         } else {
             // 全体を完成させる
             resultText = resultTextTop + centerText + resultTextUnder
@@ -110,9 +123,5 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    // 上の段の文字を作る
-//    func topLineGeneration(){
-//
-//    }
 }
 
