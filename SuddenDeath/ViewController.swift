@@ -114,6 +114,15 @@ class ViewController: UIViewController {
             resultText = resultTextTop + centerText + resultTextUnder
         }
         
+        // 特殊処理
+        if inputField.text == "ホモ" {
+            resultText = "┌(┌^o^)┐ホモォ..."
+        }
+        
+        if inputField.text == "卍" {
+            resultText = "三└(┐卍^o^)卍ﾄﾞｩﾙﾙﾙ"
+        }
+        
         // 結果に表示する
         resultField.text = resultText
     }
