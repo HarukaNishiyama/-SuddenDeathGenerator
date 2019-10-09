@@ -118,6 +118,18 @@ class ViewController: UIViewController {
         resultField.text = resultText
     }
     
+    // コピーボタンの処理
+    @IBAction func textCopyAction(_ sender: UIButton) {
+        // 初期化
+        let board = UIPasteboard.general
+        // テキストをコピーする
+        board.string = resultText
+        // 確認ダイアログ
+        let alert = UIAlertController(title: "確認", message: "コピー完了！", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     // 画面をタッチしたときキーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
